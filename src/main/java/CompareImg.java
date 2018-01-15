@@ -11,17 +11,16 @@ import static org.bytedeco.javacpp.opencv_imgproc.*;
  * 图像相似度匹配
  */
 public class CompareImg {
-
+    /**
+     * lALPBbCc1VKG95LMqM0BPA_316_168_zl.png = TIM20180115103504_zl.png
+     *
+     * lALPBbCc1VKG94_MnM0BVA_340_156_zjj.png
+     * = lALPBbCc1VKG95DMrM0BRg_326_172_zjj.png
+     * = lALPBbCc1VKG95HMos0BOA_312_162_zjj.png
+     * = lALPBbCc1VKG947Mns0BTg_334_158_zjj.png
+     *
+     */
     public static void main(String[] args) {
-        /**
-         * lALPBbCc1VKG95LMqM0BPA_316_168_zl.png = TIM20180115103504_zl.png
-         *
-         * lALPBbCc1VKG94_MnM0BVA_340_156_zjj.png
-         * = lALPBbCc1VKG95DMrM0BRg_326_172_zjj.png
-         * = lALPBbCc1VKG95HMos0BOA_312_162_zjj.png
-         * = lALPBbCc1VKG947Mns0BTg_334_158_zjj.png
-         *
-         */
         String path1 = "src/main/resources/image/lALPBbCc1VKG95LMqM0BPA_316_168_zl.png";
         String path2 = "src/main/resources/image/TIM20180115103504_zl.png";
         double ret = new CompareImg().CmpPic(path1,path2);
@@ -114,7 +113,7 @@ public class CompareImg {
         System.out.println(ret>0?"匹配":"不匹配");
     }
 
-    public double CmpPic(String path1,String path2) {
+    private double CmpPic(String path1,String path2) {
         int l_bins = 2;
         int hist_size[] = { l_bins };
 
