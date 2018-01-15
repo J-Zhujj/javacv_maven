@@ -15,7 +15,7 @@ import static org.bytedeco.javacpp.opencv_imgproc.*;
 public class Contours {
 
     public static void main(String[] args) {
-        opencv_core.IplImage img = cvLoadImage("src/main/resources/image/lALPBbCc1VKG94_MnM0BVA_340_156_zjj.png", CV_LOAD_IMAGE_GRAYSCALE);
+        opencv_core.IplImage img = cvLoadImage("src/main/resources/wz.jpg", CV_LOAD_IMAGE_GRAYSCALE);
         opencv_core.IplImage img_temp = cvCreateImage(cvGetSize(img), 8, 1);
 
         cvThreshold(img, img, 200, 255, CV_THRESH_BINARY);
