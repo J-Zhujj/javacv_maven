@@ -16,6 +16,7 @@ public class ChangeImageSize {
         try {
 
             String filepath = "/Users/zhujiajian/Downloads/waterfall-master/app/src/main/assets/im";
+            int idx = 0 ;
 
             File file = new File(filepath);
             if (!file.isDirectory()) {
@@ -40,12 +41,13 @@ public class ChangeImageSize {
                         opencv_core.Mat img = opencv_imgcodecs.imread(path);
                         System.out.println(img.size().width());
                         if(img.size().width() < 1700){
+                            opencv_imgcodecs.imwrite(
+                                    "/Users/zhujiajian/Downloads/waterfall-master/app/src/main/assets/im1/" + idx++ + ".jpg", img);
                             continue;
                         }
                         double w2 = 1700d;
                         double bl = 1700d/img.size().width();
                         double h2 = bl*img.size().height();
-                        System.out.println(1700d/3264);
                         System.out.println(bl);
                         System.out.println(h2);
 
@@ -54,7 +56,7 @@ public class ChangeImageSize {
                         resize(img, resultResized, resultResized.size(), 0, 0,
                                 INTER_CUBIC);
                         opencv_imgcodecs.imwrite(
-                                "/Users/zhujiajian/Downloads/waterfall-master/app/src/main/assets/im1/" + readfile.getName().substring(readfile.getName().indexOf("\\") + 1), resultResized);
+                                "/Users/zhujiajian/Downloads/waterfall-master/app/src/main/assets/im1/" + idx++ + ".jpg", resultResized);
 
 
                     } else if (readfile.isDirectory()) {
